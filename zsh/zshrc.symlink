@@ -1,5 +1,8 @@
 source ~/.dotfiles/zsh/config.zsh
 
+# sheldon plugin manager
+eval "$(sheldon source)"
+
 #------------------------------------------------------------------------------
 # プロファイル関連
 #   以下のコマンドは".zshrc"の最後に記載すること
