@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Daisuke Kurosawa
+    email = daisuke.kurosawa@gmail.com
+
+[color]
+    ui = true
+
+[merge]
+    ff = false
+
+[pull]
+    ff = only
+
+[core]
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
