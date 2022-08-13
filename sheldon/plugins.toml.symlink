@@ -26,3 +26,9 @@ defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 # 補完機能をインラインプラグインとし読み込み
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+# 遅延読み込み
+[plugins.dotfiles-defers]
+local = "~/.dotfiles/zsh"
+use = ["{!sync,*}.zsh"]
+apply = ["defer"]
