@@ -12,9 +12,17 @@
 
 shell = "zsh"
 
-[plugins]
+# 遅延ロードプラグイン
+# ＜重要＞
+#   zsh-deferプラグイン定義はdeferテンプレートを使うどのプラグインよりも前に置く。
+#   sheldonは常にプラグインを設定ファイルに定義された順番で処理します。
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+# 遅延テンプレートの作成
+[templates]
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+
+# 補完機能をインラインプラグインとし読み込み
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
