@@ -26,11 +26,15 @@ github = "romkatv/zsh-defer"
 
 # 遅延テンプレートの作成
 [templates]
-defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+defer = {value = 'zsh-defer source "{{ file }}"', each = true}
 
 # 補完機能をインラインプラグインとし読み込み
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 # 遅延読み込みの設定
 [plugins.lazy-zsh-dotfiles]
