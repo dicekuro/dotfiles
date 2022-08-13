@@ -12,6 +12,11 @@
 
 shell = "zsh"
 
+# 即時読み込みの設定
+[plugins.sync-zsh-dotfiles]
+local = "~/.dotfiles/zsh/sync"
+apply = ["source"]
+
 # 遅延ロードプラグイン
 # ＜重要＞
 #   zsh-deferプラグイン定義はdeferテンプレートを使うどのプラグインよりも前に置く。
@@ -27,8 +32,7 @@ defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
-# 遅延読み込み
-[plugins.dotfiles-defers]
-local = "~/.dotfiles/zsh"
-use = ["{!sync,*}.zsh"]
+# 遅延読み込みの設定
+[plugins.lazy-zsh-dotfiles]
+local = "~/.dotfiles/zsh/lazy"
 apply = ["defer"]
