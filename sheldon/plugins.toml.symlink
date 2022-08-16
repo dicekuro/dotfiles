@@ -26,7 +26,7 @@ github = "romkatv/zsh-defer"
 
 # 遅延テンプレートの作成
 [templates]
-defer = {value = 'zsh-defer source "{{ file }}"', each = true}
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 
 # 補完機能をインラインプラグインとし読み込み
 [plugins.compinit]
@@ -38,6 +38,11 @@ apply = ["defer"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.fzf]
+github = "junegunn/fzf"
+use = [".fzf.zsh"]
 apply = ["defer"]
 
 # 遅延読み込みの設定
