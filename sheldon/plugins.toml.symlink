@@ -36,6 +36,10 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
 # 遅延読み込みの設定
 [plugins.lazy-zsh-dotfiles]
 local = "~/.dotfiles/zsh/lazy"
