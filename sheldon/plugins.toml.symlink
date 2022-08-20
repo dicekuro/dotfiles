@@ -15,7 +15,6 @@ shell = "zsh"
 # ZSHの即時読み込み設定
 [plugins.sync-zsh-dotfiles]
 local = "~/.dotfiles/zsh/sync"
-use = ["*.zsh"]
 apply = ["source"]
 
 # -----------------------------------------------------------------------------
@@ -52,5 +51,4 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 # ZSHの遅延読み込み設定
 [plugins.lazy-zsh-dotfiles]
 local = "~/.dotfiles/zsh/lazy"
-use = ["*.zsh"]
 apply = ["defer"]
