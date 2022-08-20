@@ -13,7 +13,7 @@
 shell = "zsh"
 
 # ZSHの即時読み込み設定
-[plugins.sync-zsh-dotfiles]
+[plugins.dotfiles-zsh-sync]
 local = "~/.dotfiles/zsh/sync"
 apply = ["source"]
 
@@ -48,7 +48,11 @@ apply = ["defer"]
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
+# 補完候補のカラー表示
+[plugins.completion-color]
+inline = 'zsh-defer zstyle ":completion:*" list-colors "${LS_COLORS}"'
+
 # ZSHの遅延読み込み設定
-[plugins.lazy-zsh-dotfiles]
+[plugins.dotfiles-zsh-lazy]
 local = "~/.dotfiles/zsh/lazy"
 apply = ["defer"]
