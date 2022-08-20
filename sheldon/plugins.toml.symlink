@@ -12,25 +12,24 @@
 
 shell = "zsh"
 
-# 即時読み込みの設定
+# ZSHの即時読み込み設定
 [plugins.sync-zsh-dotfiles]
 local = "~/.dotfiles/zsh/sync"
+use = ["*.zsh"]
 apply = ["source"]
 
+# -----------------------------------------------------------------------------
 # 遅延ロードプラグイン
 # ＜重要＞
+#   sheldonは常に設定ファイルに定義された順番でプラグインを処理するため、
 #   zsh-deferプラグイン定義はdeferテンプレートを使うどのプラグインよりも前に置く。
-#   sheldonは常にプラグインを設定ファイルに定義された順番で処理します。
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-
-# 遅延テンプレートの作成
+apply = ["source"]
+# -----------------------------------------------------------------------------
 [templates]
 defer = { value = 'zsh-defer source "{{ file }}"', each = true }
-
-# 補完機能をインラインプラグインとし読み込み
-[plugins.compinit]
-inline = 'autoload -Uz compinit && zsh-defer compinit'
+# -----------------------------------------------------------------------------
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
@@ -42,10 +41,16 @@ apply = ["defer"]
 
 [plugins.fzf]
 github = "junegunn/fzf"
-use = [".fzf.zsh"]
+dir = "shell"
+use = ["{completion, key-bindings}.zsh"]
 apply = ["defer"]
 
-# 遅延読み込みの設定
+# 補完機能をインラインプラグインとして読み込み
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+# ZSHの遅延読み込み設定
 [plugins.lazy-zsh-dotfiles]
 local = "~/.dotfiles/zsh/lazy"
+use = ["*.zsh"]
 apply = ["defer"]
