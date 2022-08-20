@@ -3,4 +3,4 @@
 #   zsh起動時にプロファイリングする時は、以下の行のコメントを外す
 #   なお、"zmodload zsh/zprof && zprof"は".zshenv"の最初に記載すること
 #------------------------------------------------------------------------------
-#zmodload zsh/zprof && zprof
+#szmodload zsh/zprof && zprof
