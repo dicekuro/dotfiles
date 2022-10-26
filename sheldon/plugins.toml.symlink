@@ -27,7 +27,9 @@ github = "romkatv/zsh-defer"
 apply = ["source"]
 # -----------------------------------------------------------------------------
 [templates]
-defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+# 以前のdeferテンプレートの書き方
+# defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 # -----------------------------------------------------------------------------
 
 [plugins.zsh-syntax-highlighting]
